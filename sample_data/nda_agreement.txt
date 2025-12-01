@@ -1,0 +1,166 @@
+NON-DISCLOSURE AGREEMENT (NDA)
+
+This Non-Disclosure Agreement is made and entered into on 10 November 2024 between:
+
+DISCLOSING PARTY: Innovation Labs Africa (Pty) Ltd
+Registration Number: 2020/456789/07
+Address: 120 West Street, Sandton, Johannesburg, 2196, South Africa
+Representative: Dr. James Sithole, Chief Technology Officer
+
+AND
+
+RECEIVING PARTY: Digital Solutions Consulting CC
+Registration Number: 2019/234567/23
+Address: 45 Commissioner Street, Johannesburg CBD, 2001, South Africa
+Representative: Amanda Botha, Managing Member
+
+WHEREAS the Disclosing Party possesses certain proprietary and confidential information related to artificial intelligence technology, machine learning algorithms, and business strategies;
+
+WHEREAS the Receiving Party desires access to such confidential information for the purpose of evaluating a potential business partnership;
+
+NOW THEREFORE, in consideration of the mutual promises and covenants contained herein, the parties agree as follows:
+
+1. DEFINITION OF CONFIDENTIAL INFORMATION
+
+1.1 "Confidential Information" means any and all information disclosed by the Disclosing Party including but not limited to:
+    - Technical data, source code, algorithms, and software
+    - Business plans, financial information, and pricing strategies
+    - Customer lists, supplier information, and market research
+    - Trade secrets, know-how, and proprietary processes
+    - Product development plans and research findings
+    - Any information marked as "Confidential" or "Proprietary"
+
+1.2 Confidential Information excludes information that:
+    - Is publicly available through no breach of this agreement
+    - Was rightfully possessed prior to disclosure
+    - Is independently developed without use of Confidential Information
+    - Is rightfully received from a third party without restriction
+
+2. OBLIGATIONS OF RECEIVING PARTY
+
+The Receiving Party agrees to:
+
+2.1 Hold all Confidential Information in strict confidence
+2.2 Not disclose Confidential Information to any third party without written consent
+2.3 Use Confidential Information solely for the evaluation purpose stated above
+2.4 Protect Confidential Information with same care as own confidential information (minimum reasonable care)
+2.5 Limit access to employees with legitimate need-to-know who have signed confidentiality agreements
+2.6 Not copy, reproduce, or reverse engineer any Confidential Information
+2.7 Return or destroy all Confidential Information upon request or termination
+
+3. PERMITTED DISCLOSURES
+
+3.1 Receiving Party may disclose Confidential Information if required by law, court order, or government authority, provided:
+    - Disclosing Party receives prompt written notice
+    - Receiving Party cooperates in seeking protective order
+    - Only minimum required information is disclosed
+
+4. TERM AND TERMINATION
+
+4.1 This agreement shall commence on 10 November 2024 and continue for 3 years.
+4.2 Confidentiality obligations shall survive termination for 5 years.
+4.3 Either party may terminate with 30 days written notice.
+4.4 Upon termination, Receiving Party must:
+    - Return or destroy all Confidential Information within 7 days
+    - Provide written certification of compliance
+    - Cease all use of Confidential Information
+
+5. OWNERSHIP AND NO LICENSE
+
+5.1 All Confidential Information remains the exclusive property of Disclosing Party.
+5.2 No license, rights, or title to intellectual property is granted.
+5.3 This agreement does not obligate either party to proceed with any transaction.
+
+6. NO WARRANTIES
+
+6.1 Confidential Information is provided "as is" without warranty of any kind.
+6.2 Disclosing Party makes no representations regarding accuracy or completeness.
+
+7. REMEDIES AND ENFORCEMENT
+
+7.1 Receiving Party acknowledges that breach would cause irreparable harm.
+7.2 Disclosing Party entitled to injunctive relief without proving damages.
+7.3 Receiving Party liable for all damages, costs, and attorney fees resulting from breach.
+7.4 Remedies are cumulative and not exclusive.
+
+8. INDEMNIFICATION
+
+Receiving Party shall indemnify and hold harmless Disclosing Party from any loss, damage, liability, or expense arising from:
+- Breach of this agreement
+- Unauthorized disclosure or use of Confidential Information
+- Claims by third parties resulting from Receiving Party's actions
+
+9. NON-SOLICITATION
+
+9.1 For 12 months following termination, Receiving Party shall not:
+    - Solicit or hire employees of Disclosing Party
+    - Encourage employees to terminate employment
+    - Interfere with business relationships
+
+9.2 This clause does not prevent general recruitment advertising.
+
+10. DISPUTE RESOLUTION
+
+10.1 Any disputes shall first be addressed through good faith negotiation.
+10.2 Unresolved disputes shall be submitted to arbitration under AFSA rules in Johannesburg.
+10.3 Arbitration decision shall be final and binding.
+10.4 This agreement is governed by the laws of South Africa.
+10.5 Jurisdiction: High Court of South Africa, Gauteng Division, Pretoria.
+
+11. GENERAL PROVISIONS
+
+11.1 This agreement constitutes the entire agreement and supersedes all prior understandings.
+11.2 Amendments must be in writing signed by both parties.
+11.3 Waiver of one breach does not waive subsequent breaches.
+11.4 If any provision is invalid, remaining provisions remain in full force.
+11.5 Neither party may assign this agreement without written consent.
+11.6 Notices must be in writing to addresses above or email as confirmed.
+11.7 This agreement may be executed in counterparts.
+
+12. ADDITIONAL OBLIGATIONS
+
+12.1 Receiving Party shall implement appropriate security measures including:
+    - Secure storage of documents (physical and electronic)
+    - Password protection and encryption
+    - Access controls and monitoring
+    - Regular security audits
+
+12.2 Any breach must be reported to Disclosing Party within 24 hours of discovery.
+
+12.3 Receiving Party shall maintain records of all persons accessing Confidential Information.
+
+13. SPECIFIC PENALTIES
+
+13.1 Unauthorized disclosure: Penalty of R 500,000.00 per incident plus actual damages.
+13.2 Each day of continued breach constitutes separate violation.
+13.3 Penalties do not limit other remedies available at law or equity.
+
+SIGNED at Johannesburg on 10 November 2024.
+
+FOR THE DISCLOSING PARTY:
+Innovation Labs Africa (Pty) Ltd
+
+_________________________
+Dr. James Sithole
+Chief Technology Officer
+Date: 10 November 2024
+
+FOR THE RECEIVING PARTY:
+Digital Solutions Consulting CC
+
+_________________________
+Amanda Botha
+Managing Member
+Date: 10 November 2024
+
+WITNESS 1:
+_________________________
+Name: Sipho Radebe
+ID: 8104085432098
+Date: 10 November 2024
+
+WITNESS 2:
+_________________________
+Name: Jennifer Ndlovu
+ID: 8706125678034
+Date: 10 November 2024

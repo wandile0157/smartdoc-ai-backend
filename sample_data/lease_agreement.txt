@@ -1,0 +1,156 @@
+New-Item sample_data/lease_agreement.txt -ItemType File -Force
+```
+
+Open `sample_data/lease_agreement.txt` and paste:
+```
+RESIDENTIAL LEASE AGREEMENT
+
+This Lease Agreement is concluded on 1 September 2024 between:
+
+LANDLORD: Premium Properties Gauteng (Pty) Ltd
+Registration Number: 2015/987654/07
+Address: 88 Rivonia Road, Sandton, Johannesburg, 2196
+Contact: +27 11 555 1234
+
+AND
+
+TENANT: Nomsa Dlamini
+ID Number: 9203145678090
+Address: (to be the leased premises)
+Contact: +27 82 345 6789
+
+1. THE PREMISES
+
+The Landlord hereby leases to the Tenant the following residential property:
+
+Address: Unit 5B, The Pinnacle Apartments, 22 Katherine Street, Sandton, Johannesburg, 2196
+Description: 2-bedroom apartment, 1 bathroom, kitchen, lounge, balcony, 1 covered parking bay
+Size: Approximately 85 square meters
+
+2. LEASE PERIOD
+
+2.1 Commencement Date: 1 October 2024
+2.2 Initial Period: 12 months
+2.3 Termination Date: 30 September 2025
+2.4 This lease shall automatically renew on a month-to-month basis unless terminated by either party with 30 days written notice.
+
+3. RENTAL AMOUNT
+
+3.1 Monthly Rental: R 12,500.00 (Twelve Thousand Five Hundred Rands)
+3.2 Payment must be made on or before the 1st day of each month.
+3.3 Payment method: Electronic transfer to the Landlord's bank account.
+3.4 Late payment penalty: R 200.00 per day after the 7th day of the month.
+
+4. DEPOSIT
+
+4.1 Refundable deposit: R 12,500.00 (equivalent to one month's rent)
+4.2 The deposit shall be held in an interest-bearing account.
+4.3 The deposit shall be refunded within 14 days of lease termination, less any deductions for damages.
+
+5. UTILITIES AND CHARGES
+
+5.1 Water and electricity: Tenant's responsibility (approximately R 1,200.00 monthly)
+5.2 Municipal rates and taxes: Landlord's responsibility
+5.3 Building levies: Landlord's responsibility (R 2,800.00 monthly)
+5.4 Refuse removal: Included in levies
+5.5 Security services: Included in levies
+
+6. MAINTENANCE AND REPAIRS
+
+6.1 The Landlord shall maintain the structure and common areas in good condition.
+6.2 The Tenant is responsible for minor repairs under R 500.00.
+6.3 Major repairs and structural damage: Landlord's responsibility.
+6.4 Damage caused by Tenant negligence: Tenant's responsibility and cost.
+
+7. USE OF PREMISES
+
+7.1 The premises shall be used solely for residential purposes.
+7.2 No business activities may be conducted without written consent.
+7.3 Maximum occupants: 4 persons
+7.4 Pets: Not permitted without written approval. If approved, additional pet deposit of R 3,000.00 required.
+
+8. TENANT'S OBLIGATIONS
+
+The Tenant shall:
+8.1 Keep the premises clean and in good condition
+8.2 Not make alterations without written consent
+8.3 Comply with all building rules and regulations
+8.4 Allow landlord inspection with 24 hours notice
+8.5 Not sublet or assign the lease without consent
+8.6 Maintain appropriate household insurance
+
+9. LANDLORD'S OBLIGATIONS
+
+The Landlord shall:
+9.1 Ensure premises are habitable at commencement
+9.2 Maintain building insurance
+9.3 Provide access to common amenities
+9.4 Address structural maintenance promptly
+9.5 Not interfere with Tenant's quiet enjoyment
+
+10. TERMINATION
+
+10.1 Either party may terminate with 30 days written notice after initial period.
+10.2 Landlord may terminate immediately for: non-payment exceeding 14 days, illegal activities, or material breach.
+10.3 Tenant may terminate immediately if premises become uninhabitable due to Landlord's failure to maintain.
+
+11. BREACH AND PENALTIES
+
+11.1 Breach of any term may result in immediate termination.
+11.2 Tenant liable for unpaid rent until new tenant found or lease expires.
+11.3 Landlord may claim damages for breach including legal costs.
+
+12. INSPECTION AND ACCESS
+
+12.1 Landlord may inspect premises with 24 hours written notice during reasonable hours.
+12.2 Emergency access permitted without notice.
+12.3 Final inspection shall occur within 3 days of termination.
+
+13. FORCE MAJEURE
+
+Neither party shall be liable for failure to perform due to circumstances beyond reasonable control including natural disasters, strikes, or government actions.
+
+14. DISPUTE RESOLUTION
+
+14.1 Disputes shall first be addressed through negotiation.
+14.2 Unresolved disputes may be referred to mediation.
+14.3 Final recourse through Rental Housing Tribunal or courts.
+14.4 This agreement is governed by the Rental Housing Act 50 of 1999 and South African law.
+
+15. SPECIAL CONDITIONS
+
+15.1 Smoking is prohibited inside the unit but permitted on the balcony.
+15.2 Noise restrictions: Quiet hours from 22:00 to 07:00.
+15.3 Parking bay number: B-52
+15.4 Building amenities include: gym, pool, 24-hour security, communal gardens.
+
+16. GENERAL
+
+16.1 All notices must be in writing and delivered to the addresses above.
+16.2 This agreement constitutes the entire agreement between parties.
+16.3 No oral agreements shall be binding.
+16.4 Amendments must be in writing and signed by both parties.
+
+SIGNED at Johannesburg on 1 September 2024.
+
+FOR THE LANDLORD:
+Premium Properties Gauteng (Pty) Ltd
+
+_________________________
+Michael Oosthuizen
+Director
+
+FOR THE TENANT:
+
+_________________________
+Nomsa Dlamini
+
+WITNESS 1:
+_________________________
+Name: Peter Molefe
+ID: 7809125432087
+
+WITNESS 2:
+_________________________
+Name: Linda Nkosi
+ID: 8511235678091

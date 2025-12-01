@@ -1,0 +1,392 @@
+"""
+API Routes - All endpoint definitions
+Handles HTTP requests and returns responses
+"""
+
+from fastapi import APIRouter, HTTPException, status
+from typing import Dict, Any
+import logging
+
+from app.models.schemas import (
+    TextAnalysisRequest, TextAnalysisResponse,
+    LegalAnalysisRequest, LegalAnalysisResponse,
+    FeedbackAnalysisRequest, FeedbackAnalysisResponse,
+    BatchAnalysisRequest, BatchAnalysisResponse,
+    DocumentComparisonRequest, DocumentComparisonResponse,
+    HealthCheckResponse, ErrorResponse,
+    UserStatsResponse, UserStats
+)
+from app.services.analysis_service import AnalysisService
+from app.services.database_service import DatabaseService
+from app.core.config import get_settings
+
+logger = logging.getLogger(__name__)
+settings = get_settings()
+
+# Create router
+router = APIRouter()
+
+# Initialize services
+analysis_service = AnalysisService()
+db_service = DatabaseService()
+
+
+# ==================== HEALTH CHECK ====================
+
+@router.get(
+    "/health",
+    response_model=HealthCheckResponse,
+    tags=["Health"],
+    summary="Health check endpoint"
+)
+async def health_check():
+    """
+    Check API health status.
+    """
+    return HealthCheckResponse(
+        status="healthy",
+        version=settings.APP_VERSION,
+        services={
+            "api": "operational",
+            "database": "not configured" if not db_service.db_available else "operational"
+        }
+    )
+
+
+# ==================== TEXT ANALYSIS ====================
+
+@router.post(
+    "/analyze/text",
+    response_model=TextAnalysisResponse,
+    tags=["Analysis"],
+    summary="Analyze text content",
+    responses={
+        200: {"description": "Successful text analysis"},
+        400: {"model": ErrorResponse, "description": "Invalid request"},
+        500: {"model": ErrorResponse, "description": "Server error"}
+    }
+)
+async def analyze_text(request: TextAnalysisRequest):
+    """
+    Perform comprehensive text analysis including:
+    - Word count, sentence count, character count
+    - Readability score (Flesch Reading Ease)
+    - Sentiment analysis (polarity and subjectivity)
+    - Top keywords extraction
+    
+    **Example Request:**
+```json
+    {
+        "text": "This is a sample text for analysis. It demonstrates the capabilities.",
+        "analysis_type": "text"
+    }
+```
+    """
+    try:
+        logger.info(f"Text analysis requested: {len(request.text)} characters")
+        
+        # Perform analysis
+        result = analysis_service.analyze_text(request.text)
+        
+        # Return response
+        return TextAnalysisResponse(
+            success=True,
+            message="Text analysis completed successfully",
+            **result
+        )
+    
+    except ValueError as e:
+        logger.error(f"Validation error in text analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"Error in text analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Text analysis failed"
+        )
+
+
+# ==================== LEGAL ANALYSIS ====================
+
+@router.post(
+    "/analyze/legal",
+    response_model=LegalAnalysisResponse,
+    tags=["Analysis"],
+    summary="Analyze legal document",
+    responses={
+        200: {"description": "Successful legal analysis"},
+        400: {"model": ErrorResponse, "description": "Invalid request"},
+        500: {"model": ErrorResponse, "description": "Server error"}
+    }
+)
+async def analyze_legal_document(request: LegalAnalysisRequest):
+    """
+    Perform comprehensive legal document analysis including:
+    - Document type identification
+    - Party extraction (companies, individuals)
+    - Date extraction
+    - Monetary amount extraction (Rands)
+    - Clause identification (confidentiality, termination, etc.)
+    - Risk assessment score
+    - Complete text statistics
+    
+    **Supported Document Types:**
+    - Employment Contracts
+    - Lease Agreements
+    - Non-Disclosure Agreements (NDAs)
+    - Service Agreements
+    - Sales Agreements
+    
+    **Example Request:**
+```json
+    {
+        "text": "This Employment Contract is between TechCorp (Pty) Ltd and John Doe...",
+        "document_type": "employment_contract"
+    }
+```
+    """
+    try:
+        logger.info(f"Legal analysis requested: {len(request.text)} characters, type={request.document_type}")
+        
+        # Perform legal analysis
+        result = analysis_service.analyze_legal_document(
+            text=request.text,
+            document_type=request.document_type
+        )
+        
+        # Return response
+        return LegalAnalysisResponse(
+            success=True,
+            message="Legal analysis completed successfully",
+            **result
+        )
+    
+    except ValueError as e:
+        logger.error(f"Validation error in legal analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"Error in legal analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Legal analysis failed"
+        )
+
+
+# ==================== FEEDBACK ANALYSIS ====================
+
+@router.post(
+    "/analyze/feedback",
+    response_model=FeedbackAnalysisResponse,
+    tags=["Analysis"],
+    summary="Analyze feedback or reviews",
+    responses={
+        200: {"description": "Successful feedback analysis"},
+        400: {"model": ErrorResponse, "description": "Invalid request"},
+        500: {"model": ErrorResponse, "description": "Server error"}
+    }
+)
+async def analyze_feedback(request: FeedbackAnalysisRequest):
+    """
+    Analyze feedback, reviews, or customer comments focusing on:
+    - Sentiment analysis (positive, negative, neutral)
+    - Key points extraction
+    - Readability metrics
+    
+    **Use Cases:**
+    - Customer reviews
+    - Employee feedback
+    - Survey responses
+    - Social media comments
+    
+    **Example Request:**
+```json
+    {
+        "text": "The service was excellent but the waiting time was too long.",
+        "source": "customer_review"
+    }
+```
+    """
+    try:
+        logger.info(f"Feedback analysis requested: {len(request.text)} characters")
+        
+        # Perform feedback analysis
+        result = analysis_service.analyze_feedback(request.text)
+        
+        # Return response
+        return FeedbackAnalysisResponse(
+            success=True,
+            message="Feedback analysis completed successfully",
+            **result
+        )
+    
+    except ValueError as e:
+        logger.error(f"Validation error in feedback analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"Error in feedback analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Feedback analysis failed"
+        )
+
+
+# ==================== BATCH ANALYSIS ====================
+
+@router.post(
+    "/analyze/batch",
+    response_model=BatchAnalysisResponse,
+    tags=["Analysis"],
+    summary="Batch analyze multiple texts",
+    responses={
+        200: {"description": "Batch analysis completed"},
+        400: {"model": ErrorResponse, "description": "Invalid request"},
+        500: {"model": ErrorResponse, "description": "Server error"}
+    }
+)
+async def batch_analyze(request: BatchAnalysisRequest):
+    """
+    Analyze multiple texts in a single request.
+    Maximum 10 texts per batch.
+    
+    **Example Request:**
+```json
+    {
+        "texts": [
+            "First text to analyze",
+            "Second text to analyze"
+        ],
+        "analysis_type": "text"
+    }
+```
+    """
+    try:
+        logger.info(f"Batch analysis requested: {len(request.texts)} texts")
+        
+        # Perform batch analysis
+        result = analysis_service.batch_analyze(
+            texts=request.texts,
+            analysis_type=request.analysis_type.value
+        )
+        
+        # Return response
+        return BatchAnalysisResponse(
+            success=True,
+            message=f"Batch analysis completed: {result['total_processed']} texts processed",
+            **result
+        )
+    
+    except ValueError as e:
+        logger.error(f"Validation error in batch analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"Error in batch analysis: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Batch analysis failed"
+        )
+
+
+# ==================== DOCUMENT COMPARISON ====================
+
+@router.post(
+    "/analyze/compare",
+    response_model=DocumentComparisonResponse,
+    tags=["Analysis"],
+    summary="Compare two documents",
+    responses={
+        200: {"description": "Document comparison completed"},
+        400: {"model": ErrorResponse, "description": "Invalid request"},
+        500: {"model": ErrorResponse, "description": "Server error"}
+    }
+)
+async def compare_documents(request: DocumentComparisonRequest):
+    """
+    Compare two documents for similarity and differences.
+    
+    Returns:
+    - Similarity score (0-100%)
+    - Key differences
+    - Common elements
+    - Recommendation
+    
+    **Example Request:**
+```json
+    {
+        "document1": "First document text here...",
+        "document2": "Second document text here...",
+        "comparison_type": "similarity"
+    }
+```
+    """
+    try:
+        logger.info("Document comparison requested")
+        
+        # Perform comparison
+        result = analysis_service.compare_documents(
+            doc1=request.document1,
+            doc2=request.document2
+        )
+        
+        # Return response
+        return DocumentComparisonResponse(
+            success=True,
+            message="Document comparison completed successfully",
+            **result
+        )
+    
+    except ValueError as e:
+        logger.error(f"Validation error in document comparison: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"Error in document comparison: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Document comparison failed"
+        )
+
+
+# ==================== USER STATISTICS ====================
+
+@router.get(
+    "/user/stats",
+    response_model=UserStatsResponse,
+    tags=["User"],
+    summary="Get user statistics"
+)
+async def get_user_stats(user_id: str = "demo"):
+    """
+    Get analysis statistics for a user.
+    Currently returns placeholder data.
+    Will be fully functional once authentication is implemented.
+    """
+    try:
+        # Get stats from database service (placeholder for now)
+        stats = await db_service.get_user_stats(user_id)
+        
+        return UserStatsResponse(
+            success=True,
+            message="User statistics retrieved successfully",
+            stats=UserStats(**stats)
+        )
+    
+    except Exception as e:
+        logger.error(f"Error fetching user stats: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to retrieve user statistics"
+        )
