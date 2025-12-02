@@ -30,11 +30,13 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "your-secret-key-change-in-production"
     
     # CORS Settings
-    CORS_ORIGINS: list = [
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://127.0.0.1:3000",
-    ]
+    CORS_ORIGINS: list[str] = [
+    "http://localhost:3000",
+    "http://localhost:3001", 
+    "http://127.0.0.1:3000",
+    "https://smartdoc-ai-frontend.vercel.app",  # Your actual Vercel URL
+    "https://smartdoc-ai-frontend-*.vercel.app",  # Preview deployments
+]
     
     # File Upload Settings
     MAX_FILE_SIZE_MB: int = 10
